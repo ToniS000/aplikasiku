@@ -69,8 +69,9 @@
                     <td>
                       <a href="<?php echo base_url() . 'data_mahasiswa/edit/' . $mahasiswa->id; ?>" class="btn btn-sm btn-secondary">
                         <i class="fas fa-edit"></i> Edit</a>
-                      <a href="<?php echo base_url() . 'data_mahasiswa/delete/' . $mahasiswa->id; ?>" class="btn btn-sm btn-danger">
-                        <i class="fas fa-trash"></i> Delete</a> </td>
+                      <a href="<?php echo base_url() . 'data_mahasiswa/delete/' . $mahasiswa->id; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah data ini akan di hapus ?')">
+                        <i class="fas fa-trash"></i> Delete</a>
+                    </td>
                   </tr>
                 <?php } ?>
               </tbody>

@@ -36,4 +36,12 @@ class Data_mahasiswa extends CI_Controller
   {
     $this->data_mahasiswa_model->update();
   }
+  public function delete($id)
+  {
+    $this->data_mahasiswa_model->delete($id);
+    //pesan berhasil
+    $msg = "<script>alert('Berhasil di delete')</script>";
+    $this->session->set_flashdata("pesan", $msg);
+    redirect(base_url() . 'data_mahasiswa');
+  }
 }

@@ -92,4 +92,9 @@
     $this->session->set_flashdata("pesan", $msg);
     redirect(base_url() . 'data_mahasiswa');
   }
+  function delete($id)
+  {
+    $this->db->where('id', $id);
+    $this->db->delete($this->table);
+  }
 }

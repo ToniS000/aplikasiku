@@ -5,6 +5,7 @@ class Dashboard extends CI_Controller
   {
     parent::__construct();
     $this->load->helper('url');
+    $this->load->model('dashboard_model');
   }
   function _template($data)
   {
@@ -12,6 +13,9 @@ class Dashboard extends CI_Controller
   }
   public function index()
   {
+    $data['total_data'] = $this->dashboard_model->total_data();
+    $data['total_laki'] = $this->dashboard_model->total_laki();
+    $data['total_perempuan'] = $this->dashboard_model->total_perempuan();
     $data['konten'] = 'dashboard';
     $this->_template($data);
   }
