@@ -26,4 +26,14 @@ class Data_mahasiswa extends CI_Controller
   {
     $this->data_mahasiswa_model->insert();
   }
+  public function edit($id)
+  {
+    $data['mahasiswa'] = $this->data_mahasiswa_model->select_by_id($id)->row();
+    $data['konten'] = 'data_mahasiswa/edit_data';
+    $this->_template($data);
+  }
+  public function proses_update()
+  {
+    $this->data_mahasiswa_model->update();
+  }
 }
