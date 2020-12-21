@@ -17,4 +17,13 @@ class Data_mahasiswa extends CI_Controller
     $data['konten'] = 'data_mahasiswa/list_data';
     $this->_template($data);
   }
+  public function tambah()
+  {
+    $data['konten'] = 'data_mahasiswa/tambah_data';
+    $this->_template($data);
+  }
+  public function proses_simpan()
+  {
+    $this->data_mahasiswa_model->insert();
+  }
 }
