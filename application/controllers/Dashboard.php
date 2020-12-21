@@ -6,6 +6,9 @@ class Dashboard extends CI_Controller
     parent::__construct();
     $this->load->helper('url');
     $this->load->model('dashboard_model');
+    if ($this->session->userdata('id') == '') {
+      redirect(base_url() . 'login');
+    }
   }
   function _template($data)
   {
