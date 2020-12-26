@@ -25,12 +25,26 @@ class Login_model extends CI_Model
         "username" => $val_login->username,
       );
       $this->session->set_userdata($array);
-      redirect(base_url() . 'dashboard');
+      $sesi = $this->session->userdata("hak_akses");
+      $this->validasi_session($sesi);
     } else {
       //jika gagal
       $msg = "<script>alert('Login Gagal, Harap periksa kembali username dan password Anda !')</script>";
       $this->session->set_flashdata("pesan", $msg);
       redirect(base_url() . 'login');
+    }
+  }
+  function validasi_session($id)
+  {
+    $sesi = $this->session->userdata("hak_akses");
+    if ($sesi == 'Administrator') {
+      redirect(base_url() . 'dashboard');
+    }
+    if ($sesi == 'Operator') {
+      redirect(base_url() . 'data_mahasiswa');
+    }
+    if (!$sesi) {
+      redirect("login/logout");
     }
   }
 }

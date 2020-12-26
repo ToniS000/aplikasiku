@@ -9,7 +9,7 @@
     </li>
   </ul> <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item"> \
+    <li class="nav-item">
       <a class="nav-link" title="Log out" href="<?php echo base_url('login/logout') ?>" role="button">
         <i class="fas fa-sign-out-alt"></i>
       </a>
